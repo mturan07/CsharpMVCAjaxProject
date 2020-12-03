@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="REDKITIZModelStoreContainer" CdmEntityContainer="REDKITIZEntities">
+    <EntitySetMapping Name="Caddeler">
+      <EntityTypeMapping TypeName="REDKITIZModel.Caddeler">
+        <MappingFragment StoreEntitySet="Caddeler">
+          <ScalarProperty Name="caddeId" ColumnName="caddeId" />
+          <ScalarProperty Name="caddeAdi" ColumnName="caddeAdi" />
+          <ScalarProperty Name="mahalleId" ColumnName="mahalleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cinsiyet">
+      <EntityTypeMapping TypeName="REDKITIZModel.Cinsiyet">
+        <MappingFragment StoreEntitySet="Cinsiyet">
+          <ScalarProperty Name="cinsiyetId" ColumnName="cinsiyetId" />
+          <ScalarProperty Name="cinsiyetAdi" ColumnName="cinsiyetAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ilceler">
+      <EntityTypeMapping TypeName="REDKITIZModel.Ilceler">
+        <MappingFragment StoreEntitySet="Ilceler">
+          <ScalarProperty Name="ilceId" ColumnName="ilceId" />
+          <ScalarProperty Name="ilceAdi" ColumnName="ilceAdi" />
+          <ScalarProperty Name="sehirId" ColumnName="sehirId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kayitlar">
+      <EntityTypeMapping TypeName="REDKITIZModel.Kayitlar">
+        <MappingFragment StoreEntitySet="Kayitlar">
+          <ScalarProperty Name="Yas" ColumnName="Yas" />
+          <ScalarProperty Name="KaraListe" ColumnName="KaraListe" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="DogumYeri" ColumnName="DogumYeri" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Nufusil" ColumnName="Nufusil" />
+          <ScalarProperty Name="Nufusilce" ColumnName="Nufusilce" />
+          <ScalarProperty Name="Adresil" ColumnName="Adresil" />
+          <ScalarProperty Name="Adresilce" ColumnName="Adresilce" />
+          <ScalarProperty Name="AdresBelde" ColumnName="AdresBelde" />
+          <ScalarProperty Name="AdresMahalle" ColumnName="AdresMahalle" />
+          <ScalarProperty Name="AdresCaddeSokak" ColumnName="AdresCaddeSokak" />
+          <ScalarProperty Name="AdresKapiNo" ColumnName="AdresKapiNo" />
+          <ScalarProperty Name="AdresDaire" ColumnName="AdresDaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="REDKITIZModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="SonGirisTar" ColumnName="SonGirisTar" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Seviye" ColumnName="Seviye" />
+          <ScalarProperty Name="KulAdi" ColumnName="KulAdi" />
+          <ScalarProperty Name="KulSifre" ColumnName="KulSifre" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="TCSorgulasin" ColumnName="TCSorgulasin" />
+          <ScalarProperty Name="DokumAlabilsin" ColumnName="DokumAlabilsin" />
+          <ScalarProperty Name="AdSoyadSorgulasin" ColumnName="AdSoyadSorgulasin" />
+          <ScalarProperty Name="Ekleyen" ColumnName="Ekleyen" />
+          <ScalarProperty Name="EklemeTar" ColumnName="EklemeTar" />
+          <ScalarProperty Name="Duzenleyen" ColumnName="Duzenleyen" />
+          <ScalarProperty Name="DuzenlemeTar" ColumnName="DuzenlemeTar" />
+          <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogDokum">
+      <EntityTypeMapping TypeName="REDKITIZModel.LogDokum">
+        <MappingFragment StoreEntitySet="LogDokum">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KulAdi" ColumnName="KulAdi" />
+          <ScalarProperty Name="EkranAdi" ColumnName="EkranAdi" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogKullanici">
+      <EntityTypeMapping TypeName="REDKITIZModel.LogKullanici">
+        <MappingFragment StoreEntitySet="LogKullanici">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KulAdi" ColumnName="KulAdi" />
+          <ScalarProperty Name="GirisTar" ColumnName="GirisTar" />
+          <ScalarProperty Name="CikisTar" ColumnName="CikisTar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mahalle">
+      <EntityTypeMapping TypeName="REDKITIZModel.Mahalle">
+        <MappingFragment StoreEntitySet="Mahalle">
+          <ScalarProperty Name="mahalleId" ColumnName="mahalleId" />
+          <ScalarProperty Name="mahalleAdi" ColumnName="mahalleAdi" />
+          <ScalarProperty Name="ilceId" ColumnName="ilceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sehirler">
+      <EntityTypeMapping TypeName="REDKITIZModel.sehirler">
+        <MappingFragment StoreEntitySet="sehirler">
+          <ScalarProperty Name="sehirId" ColumnName="sehirId" />
+          <ScalarProperty Name="sehirAdi" ColumnName="sehirAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prAdSoyadBul" FunctionName="REDKITIZModel.Store.prAdSoyadBul">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="REDKITIZModel.prAdSoyadBul_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="DogumYeri" ColumnName="DogumYeri" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Nufusil" ColumnName="Nufusil" />
+          <ScalarProperty Name="Nufusilce" ColumnName="Nufusilce" />
+          <ScalarProperty Name="Adresil" ColumnName="Adresil" />
+          <ScalarProperty Name="Adresilce" ColumnName="Adresilce" />
+          <ScalarProperty Name="AdresBelde" ColumnName="AdresBelde" />
+          <ScalarProperty Name="AdresMahalle" ColumnName="AdresMahalle" />
+          <ScalarProperty Name="AdresCaddeSokak" ColumnName="AdresCaddeSokak" />
+          <ScalarProperty Name="AdresKapiNo" ColumnName="AdresKapiNo" />
+          <ScalarProperty Name="AdresDaire" ColumnName="AdresDaire" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prTelefonBul" FunctionName="REDKITIZModel.Store.prTelefonBul">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="REDKITIZModel.prTelefonBul_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="DogumYeri" ColumnName="DogumYeri" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Nufusil" ColumnName="Nufusil" />
+          <ScalarProperty Name="Nufusilce" ColumnName="Nufusilce" />
+          <ScalarProperty Name="Adresil" ColumnName="Adresil" />
+          <ScalarProperty Name="Adresilce" ColumnName="Adresilce" />
+          <ScalarProperty Name="AdresBelde" ColumnName="AdresBelde" />
+          <ScalarProperty Name="AdresMahalle" ColumnName="AdresMahalle" />
+          <ScalarProperty Name="AdresCaddeSokak" ColumnName="AdresCaddeSokak" />
+          <ScalarProperty Name="AdresKapiNo" ColumnName="AdresKapiNo" />
+          <ScalarProperty Name="AdresDaire" ColumnName="AdresDaire" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="LogGirisCikis">
+      <EntityTypeMapping TypeName="REDKITIZModel.LogGirisCikis">
+        <MappingFragment StoreEntitySet="LogGirisCikis">
+          <ScalarProperty Name="CikisTar" ColumnName="CikisTar" />
+          <ScalarProperty Name="GirisTar" ColumnName="GirisTar" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="KulaniciId" ColumnName="KulaniciId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="prIlce" FunctionName="REDKITIZModel.Store.prIlce" />
+    <FunctionImportMapping FunctionImportName="prMahalle" FunctionName="REDKITIZModel.Store.prMahalle" />
+    <FunctionImportMapping FunctionImportName="prIlceler" FunctionName="REDKITIZModel.Store.prIlceler" />
+  </EntityContainerMapping>
+</Mapping>

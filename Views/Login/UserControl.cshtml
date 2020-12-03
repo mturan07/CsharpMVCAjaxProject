@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kullanıcı </title>
+    <link href="~/Content/css/login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body class="bg">
+    <div class="container">
+        <div class="row vertical-offset-100">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Kullanıcı Giriş</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/Login/UserControl" method="post" accept-charset="UTF-8" role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Kullanıcı" name="username" autofocus="autofocus" type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Parola" name="password" type="password" value="">
+                                </div>
+                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Giriş">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

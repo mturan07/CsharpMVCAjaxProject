@@ -1,0 +1,197 @@
+﻿@model WebApp.Data.Kullanici
+
+@{
+    ViewBag.Title = "Kullanıcı Ekle";
+    List<SelectListItem> seviyeListesi = (List<SelectListItem>)ViewBag.Seviyeler;
+}
+
+<section class="content">
+
+    <p>
+        <input type="button" class="btn btn-primary" value="Kullanıcı Listesi" onclick="location.href='@Url.Action("KullaniciListesi", "Portal")'" />
+    </p>
+
+    <!-- general form elements -->
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Kullanıcı Ekle</h3>
+
+            @using (Html.BeginForm(Html.BeginForm("KullaniciEkle", "Portal", FormMethod.Post, new { enctype = "multipart/form-data" })))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Seviye, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.DropDownListFor(model => model.Seviye, seviyeListesi, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Seviye, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.KulAdi, "Kul. Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.KulAdi,
+                            new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
+                            @Html.ValidationMessageFor(model => model.KulAdi, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.KulSifre, "Kul. Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.KulSifre,
+                                new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                            @Html.ValidationMessageFor(model => model.KulSifre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Adi, "Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Adi, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Adi, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Soyadi, "Soyadı", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Soyadi, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Soyadi, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.TCSorgulasin, "", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.TCSorgulasin, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TCSorgulasin, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DokumAlabilsin, "Döküm Alsın", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @{
+                                List<SelectListItem> listDokum = new List<SelectListItem>();
+                                listDokum.Add(new SelectListItem
+                                {
+                                    Text = "Evet",
+                                    Value = "true"
+                                });
+                                listDokum.Add(new SelectListItem
+                                {
+                                    Text = "Hayır",
+                                    Value = "false",
+                                });
+                            }
+
+                            @Html.DropDownListFor(model => model.DokumAlabilsin, listDokum, new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.DokumAlabilsin, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AdSoyadSorgulasin, "Ad Soyad Sorgulasın", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @{
+                                List<SelectListItem> listAdSoyad = new List<SelectListItem>();
+                                listAdSoyad.Add(new SelectListItem
+                                {
+                                    Text = "Evet",
+                                    Value = "true"
+                                });
+                                listAdSoyad.Add(new SelectListItem
+                                {
+                                    Text = "Hayır",
+                                    Value = "false",
+                                });
+                            }
+
+                            @Html.DropDownListFor(model => model.AdSoyadSorgulasin, listAdSoyad, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.AdSoyadSorgulasin, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Ekleyen, "Ekleyen", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Ekleyen,
+                            new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Ekleyen, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EklemeTar, "Ekleme Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.EklemeTar,
+                            new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.EklemeTar, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.Duzenleyen, "Düzenleyen", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.Duzenleyen, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Duzenleyen, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DuzenlemeTar, "Düzenleme Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.DuzenlemeTar, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DuzenlemeTar, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Aktif, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @{
+                                List<SelectListItem> listAktif = new List<SelectListItem>();
+                                listAktif.Add(new SelectListItem
+                                {
+                                    Text = "Evet",
+                                    Value = "true"
+                                });
+                                listAktif.Add(new SelectListItem
+                                {
+                                    Text = "Hayır",
+                                    Value = "false",
+                                });
+                            }
+
+                            @Html.DropDownListFor(model => model.Aktif, listAktif, new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.Aktif, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SonGirisTar, "Son Giriş", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.SonGirisTar, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SonGirisTar, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-6">
+                            <input type="submit" value="Kaydet" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>

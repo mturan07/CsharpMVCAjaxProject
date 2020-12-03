@@ -1,0 +1,46 @@
+﻿@{ 
+    string seviye = ""; bool dokumAlabilsin = false, adsoyadSorgulasin = false;
+    if (HttpContext.Current.Session["UserLevel"] != null)
+    {
+        seviye = HttpContext.Current.Session["UserLevel"].ToString();
+        dokumAlabilsin = Convert.ToBoolean(HttpContext.Current.Session["DokumAlabilsin"]);
+        adsoyadSorgulasin = Convert.ToBoolean(HttpContext.Current.Session["AdSoyadSorgulasin"]);
+        //bool tcSorgulasin = Convert.ToBoolean(HttpContext.Current.Session["TCSorgulasin"]);
+    }
+}
+
+<!-- sidebar menu: : style can be found in sidebar.less -->
+<ul class="sidebar-menu" data-widget="tree">
+    @*<li class="header">ANA MENÜ</li>
+        <li><a href="/Portal/"><i class="fa fa-book"></i> <span>Örnek Menü</span></a></li>*@
+    <li class="header">İŞLEMLER</li>
+    @{
+        if ((seviye.Equals("Kullanici") & adsoyadSorgulasin.Equals(true)) |
+        (seviye.Equals("SuperYonetici") | seviye.Equals("Yonetici")))
+        {
+            <li><a href="/Portal/AdSoyadAra"><i class="fa fa-search-plus"></i> <span>Ad Soyad Ara</span></a></li>
+        }
+    }
+
+    @*<li><a href="/Portal/#"><i class="fa fa-search"></i> <span>Ad Soyad Ara</span></a></li>*@
+    <li><a href="/Portal/TelefonNoAra"><i class="fa fa-search-minus"></i> <span>Telefon No Ara</span></a></li>
+    <li><a href="/Portal/DataSorgula"><i class="fa fa-search-minus"></i> <span>Data Sorgulama</span></a></li>
+    <li><a href="/Portal/DataSayilari"><i class="fa fa-search-minus"></i> <span>Data Sayıları</span></a></li>
+
+    @{
+        if ((seviye.Equals("Kullanici") & dokumAlabilsin.Equals(true)) |
+            (seviye.Equals("SuperYonetici") | seviye.Equals("Yonetici")))
+        {
+            <text><li><a href='~/Portal/DataDokum'><i class='fa fa-print'></i> <span>Data Döküm</span></a></li></text>
+        }
+    }
+    <li class="header">TANIMLAR</li>
+    @{
+        if (seviye.Equals("SuperYonetici") | seviye.Equals("Yonetici"))
+        {
+            <text><li><a href="/Portal/KullaniciListesi"><i class="fa fa-user"></i> <span>Kullanıcılar</span></a></li></text>
+        }
+    }
+
+    <li><a href="/Portal/KaraListe"><i class="fa fa-users"></i> <span>Kara Liste</span></a></li>
+</ul>

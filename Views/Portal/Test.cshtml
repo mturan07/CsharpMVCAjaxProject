@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+<div class="box box-info">
+
+    <div class="box-header with-border">
+        <h3 class="box-title">Ad Soyad Ara</h3>
+    </div>
+
+    <form action="/Portal/Test" enctype="multipart/form-data" method="post">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <label>İlçeler</label>
+                    <select id="selectIlce" multiple="multiple" class="form-control"><option value="920" title="VAN">ÇALDIRAN</option><option value="927" title="VAN">BAHÇESARAY</option><option value="978" title="VAN">İPEKYOLU</option></select>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" id="btnListele" class="btn btn-primary">Listele</button>
+
+    </form>
+</div>

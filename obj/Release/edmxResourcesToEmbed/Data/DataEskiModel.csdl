@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KirmiziportalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aboneler">
+    <Key>
+      <PropertyRef Name="aboneId" />
+    </Key>
+    <Property Name="aboneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="operatorId" Type="Int32" Nullable="false" />
+    <Property Name="tipId" Type="Int32" Nullable="false" />
+    <Property Name="telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tc" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cinsiyetId" Type="Int32" Nullable="false" />
+    <Property Name="ilksoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="anaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="babaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dogumYeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dogumtarihi" Type="DateTime" Precision="0" />
+    <Property Name="nufusilId" Type="Int32" Nullable="false" />
+    <Property Name="nufusilceId" Type="Int32" Nullable="false" />
+    <Property Name="adresIlId" Type="Int32" Nullable="false" />
+    <Property Name="adresIlceId" Type="Int32" Nullable="false" />
+    <Property Name="adresMahalleId" Type="Int32" Nullable="false" />
+    <Property Name="adresCaddeSokakId" Type="Int32" Nullable="false" />
+    <Property Name="adresKapiNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="adresDaire" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Tedas" Type="Int32" />
+    <Property Name="Blacklst" Type="Int32" />
+    <Property Name="aktarim" Type="Int32" />
+    <Property Name="tempid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Caddeler">
+    <Key>
+      <PropertyRef Name="caddeId" />
+    </Key>
+    <Property Name="caddeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="caddeAdi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="mahalleId" Type="Int32" Nullable="false" />
+    <Property Name="aktarim" Type="Int32" />
+    <NavigationProperty Name="Mahalle" Relationship="Self.FK_Caddeler_Mahalle" FromRole="Caddeler" ToRole="Mahalle" />
+  </EntityType>
+  <EntityType Name="Cinsiyet">
+    <Key>
+      <PropertyRef Name="cinsiyetId" />
+    </Key>
+    <Property Name="cinsiyetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cinsiyetAdi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ilceler">
+    <Key>
+      <PropertyRef Name="ilceId" />
+    </Key>
+    <Property Name="ilceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ilceAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sehirId" Type="Int32" Nullable="false" />
+    <Property Name="aktarim" Type="Int32" />
+    <NavigationProperty Name="sehirler" Relationship="Self.FK_Ilceler_sehirler" FromRole="Ilceler" ToRole="sehirler" />
+    <NavigationProperty Name="Mahalle" Relationship="Self.FK_Mahalle_Ilceler" FromRole="Ilceler" ToRole="Mahalle" />
+  </EntityType>
+  <EntityType Name="Mahalle">
+    <Key>
+      <PropertyRef Name="mahalleId" />
+    </Key>
+    <Property Name="mahalleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mahalleAdi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ilceId" Type="Int32" Nullable="false" />
+    <Property Name="aktarim" Type="Int32" />
+    <NavigationProperty Name="Caddeler" Relationship="Self.FK_Caddeler_Mahalle" FromRole="Mahalle" ToRole="Caddeler" />
+    <NavigationProperty Name="Ilceler" Relationship="Self.FK_Mahalle_Ilceler" FromRole="Mahalle" ToRole="Ilceler" />
+  </EntityType>
+  <EntityType Name="sehirler">
+    <Key>
+      <PropertyRef Name="sehirId" />
+    </Key>
+    <Property Name="sehirId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sehirAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Ilceler" Relationship="Self.FK_Ilceler_sehirler" FromRole="sehirler" ToRole="Ilceler" />
+  </EntityType>
+  <Association Name="FK_Caddeler_Mahalle">
+    <End Role="Mahalle" Type="Self.Mahalle" Multiplicity="1" />
+    <End Role="Caddeler" Type="Self.Caddeler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mahalle">
+        <PropertyRef Name="mahalleId" />
+      </Principal>
+      <Dependent Role="Caddeler">
+        <PropertyRef Name="mahalleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ilceler_sehirler">
+    <End Role="sehirler" Type="Self.sehirler" Multiplicity="1" />
+    <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sehirler">
+        <PropertyRef Name="sehirId" />
+      </Principal>
+      <Dependent Role="Ilceler">
+        <PropertyRef Name="sehirId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mahalle_Ilceler">
+    <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="1" />
+    <End Role="Mahalle" Type="Self.Mahalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ilceler">
+        <PropertyRef Name="ilceId" />
+      </Principal>
+      <Dependent Role="Mahalle">
+        <PropertyRef Name="ilceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KirmiziportalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aboneler" EntityType="Self.Aboneler" />
+    <EntitySet Name="Caddeler" EntityType="Self.Caddeler" />
+    <EntitySet Name="Cinsiyet" EntityType="Self.Cinsiyet" />
+    <EntitySet Name="Ilceler" EntityType="Self.Ilceler" />
+    <EntitySet Name="Mahalle" EntityType="Self.Mahalle" />
+    <EntitySet Name="sehirler" EntityType="Self.sehirler" />
+    <AssociationSet Name="FK_Caddeler_Mahalle" Association="Self.FK_Caddeler_Mahalle">
+      <End Role="Mahalle" EntitySet="Mahalle" />
+      <End Role="Caddeler" EntitySet="Caddeler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ilceler_sehirler" Association="Self.FK_Ilceler_sehirler">
+      <End Role="sehirler" EntitySet="sehirler" />
+      <End Role="Ilceler" EntitySet="Ilceler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mahalle_Ilceler" Association="Self.FK_Mahalle_Ilceler">
+      <End Role="Ilceler" EntitySet="Ilceler" />
+      <End Role="Mahalle" EntitySet="Mahalle" />
+    </AssociationSet>
+    <EntitySet Name="Kullanici" EntityType="KirmiziportalModel.Kullanici" />
+    <EntitySet Name="LogDokum" EntityType="KirmiziportalModel.LogDokum" />
+    <EntitySet Name="LogGirisCikis" EntityType="KirmiziportalModel.LogGirisCikis" />
+    <EntitySet Name="LogKullanici" EntityType="KirmiziportalModel.LogKullanici" />
+  </EntityContainer>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Seviye" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KulAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KulSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TCSorgulasin" Type="Boolean" />
+    <Property Name="DokumAlabilsin" Type="Boolean" />
+    <Property Name="AdSoyadSorgulasin" Type="Boolean" />
+    <Property Name="Ekleyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EklemeTar" Type="DateTime" Precision="3" />
+    <Property Name="Duzenleyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DuzenlemeTar" Type="DateTime" Precision="3" />
+    <Property Name="Aktif" Type="Boolean" />
+    <Property Name="SonGirisTar" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="LogDokum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KulAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EkranAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adet" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LogGirisCikis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KulaniciId" Type="Int32" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GirisTar" Type="DateTime" Precision="3" />
+    <Property Name="CikisTar" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="LogKullanici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KulAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GirisTar" Type="DateTime" Precision="3" />
+    <Property Name="CikisTar" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

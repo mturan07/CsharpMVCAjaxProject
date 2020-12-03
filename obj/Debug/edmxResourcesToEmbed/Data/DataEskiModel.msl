@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KirmiziportalModelStoreContainer" CdmEntityContainer="KirmiziportalEntities">
+    <EntitySetMapping Name="Aboneler">
+      <EntityTypeMapping TypeName="KirmiziportalModel.Aboneler">
+        <MappingFragment StoreEntitySet="Aboneler">
+          <ScalarProperty Name="aboneId" ColumnName="aboneId" />
+          <ScalarProperty Name="operatorId" ColumnName="operatorId" />
+          <ScalarProperty Name="tipId" ColumnName="tipId" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="adi" ColumnName="adi" />
+          <ScalarProperty Name="soyadi" ColumnName="soyadi" />
+          <ScalarProperty Name="cinsiyetId" ColumnName="cinsiyetId" />
+          <ScalarProperty Name="ilksoyadi" ColumnName="ilksoyadi" />
+          <ScalarProperty Name="anaAdi" ColumnName="anaAdi" />
+          <ScalarProperty Name="babaAdi" ColumnName="babaAdi" />
+          <ScalarProperty Name="dogumYeri" ColumnName="dogumYeri" />
+          <ScalarProperty Name="dogumtarihi" ColumnName="dogumtarihi" />
+          <ScalarProperty Name="nufusilId" ColumnName="nufusilId" />
+          <ScalarProperty Name="nufusilceId" ColumnName="nufusilceId" />
+          <ScalarProperty Name="adresIlId" ColumnName="adresIlId" />
+          <ScalarProperty Name="adresIlceId" ColumnName="adresIlceId" />
+          <ScalarProperty Name="adresMahalleId" ColumnName="adresMahalleId" />
+          <ScalarProperty Name="adresCaddeSokakId" ColumnName="adresCaddeSokakId" />
+          <ScalarProperty Name="adresKapiNo" ColumnName="adresKapiNo" />
+          <ScalarProperty Name="adresDaire" ColumnName="adresDaire" />
+          <ScalarProperty Name="Tedas" ColumnName="Tedas" />
+          <ScalarProperty Name="Blacklst" ColumnName="Blacklst" />
+          <ScalarProperty Name="aktarim" ColumnName="aktarim" />
+          <ScalarProperty Name="tempid" ColumnName="tempid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Caddeler">
+      <EntityTypeMapping TypeName="KirmiziportalModel.Caddeler">
+        <MappingFragment StoreEntitySet="Caddeler">
+          <ScalarProperty Name="caddeId" ColumnName="caddeId" />
+          <ScalarProperty Name="caddeAdi" ColumnName="caddeAdi" />
+          <ScalarProperty Name="mahalleId" ColumnName="mahalleId" />
+          <ScalarProperty Name="aktarim" ColumnName="aktarim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cinsiyet">
+      <EntityTypeMapping TypeName="KirmiziportalModel.Cinsiyet">
+        <MappingFragment StoreEntitySet="Cinsiyet">
+          <ScalarProperty Name="cinsiyetId" ColumnName="cinsiyetId" />
+          <ScalarProperty Name="cinsiyetAdi" ColumnName="cinsiyetAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ilceler">
+      <EntityTypeMapping TypeName="KirmiziportalModel.Ilceler">
+        <MappingFragment StoreEntitySet="Ilceler">
+          <ScalarProperty Name="ilceId" ColumnName="ilceId" />
+          <ScalarProperty Name="ilceAdi" ColumnName="ilceAdi" />
+          <ScalarProperty Name="sehirId" ColumnName="sehirId" />
+          <ScalarProperty Name="aktarim" ColumnName="aktarim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mahalle">
+      <EntityTypeMapping TypeName="KirmiziportalModel.Mahalle">
+        <MappingFragment StoreEntitySet="Mahalle">
+          <ScalarProperty Name="mahalleId" ColumnName="mahalleId" />
+          <ScalarProperty Name="mahalleAdi" ColumnName="mahalleAdi" />
+          <ScalarProperty Name="ilceId" ColumnName="ilceId" />
+          <ScalarProperty Name="aktarim" ColumnName="aktarim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sehirler">
+      <EntityTypeMapping TypeName="KirmiziportalModel.sehirler">
+        <MappingFragment StoreEntitySet="sehirler">
+          <ScalarProperty Name="sehirId" ColumnName="sehirId" />
+          <ScalarProperty Name="sehirAdi" ColumnName="sehirAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="KirmiziportalModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="SonGirisTar" ColumnName="SonGirisTar" />
+          <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+          <ScalarProperty Name="DuzenlemeTar" ColumnName="DuzenlemeTar" />
+          <ScalarProperty Name="Duzenleyen" ColumnName="Duzenleyen" />
+          <ScalarProperty Name="EklemeTar" ColumnName="EklemeTar" />
+          <ScalarProperty Name="Ekleyen" ColumnName="Ekleyen" />
+          <ScalarProperty Name="AdSoyadSorgulasin" ColumnName="AdSoyadSorgulasin" />
+          <ScalarProperty Name="DokumAlabilsin" ColumnName="DokumAlabilsin" />
+          <ScalarProperty Name="TCSorgulasin" ColumnName="TCSorgulasin" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="KulSifre" ColumnName="KulSifre" />
+          <ScalarProperty Name="KulAdi" ColumnName="KulAdi" />
+          <ScalarProperty Name="Seviye" ColumnName="Seviye" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogDokum">
+      <EntityTypeMapping TypeName="KirmiziportalModel.LogDokum">
+        <MappingFragment StoreEntitySet="LogDokum">
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="EkranAdi" ColumnName="EkranAdi" />
+          <ScalarProperty Name="KulAdi" ColumnName="KulAdi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogGirisCikis">
+      <EntityTypeMapping TypeName="KirmiziportalModel.LogGirisCikis">
+        <MappingFragment StoreEntitySet="LogGirisCikis">
+          <ScalarProperty Name="CikisTar" ColumnName="CikisTar" />
+          <ScalarProperty Name="GirisTar" ColumnName="GirisTar" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="KulaniciId" ColumnName="KulaniciId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogKullanici">
+      <EntityTypeMapping TypeName="KirmiziportalModel.LogKullanici">
+        <MappingFragment StoreEntitySet="LogKullanici">
+          <ScalarProperty Name="CikisTar" ColumnName="CikisTar" />
+          <ScalarProperty Name="GirisTar" ColumnName="GirisTar" />
+          <ScalarProperty Name="KulAdi" ColumnName="KulAdi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
